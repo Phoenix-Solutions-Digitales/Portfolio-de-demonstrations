@@ -145,24 +145,24 @@
     aspect-ratio:21/9; border-radius:var(--radius); position:relative; overflow:hidden;
     background:linear-gradient(160deg,#28331F,#4B5D38);
   }
-  .video-frame img.rows-static{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+  .video-frame video.rows-static{
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0; background:#000;
   }
   .video-frame::after{
     content:"";
-    position:absolute; inset:0; z-index:1;
-    background:linear-gradient(180deg, rgba(20,20,12,0.15) 0%, rgba(20,15,8,0.55) 100%);
+    position:absolute; inset:0; z-index:1; pointer-events:none;
+    background:linear-gradient(180deg, rgba(20,20,12,0.1) 0%, rgba(20,15,8,0.35) 100%);
   }
-  .play-btn{
-    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
-    width:76px; height:76px; border-radius:50%;
-    background:rgba(243,238,225,0.92);
+  .sound-btn{
+    position:absolute; top:16px; right:16px;
+    width:44px; height:44px; border-radius:50%;
+    background:rgba(20,20,12,0.55); backdrop-filter:blur(2px);
     display:flex; align-items:center; justify-content:center;
-    cursor:pointer; transition:transform .15s ease;
-    border:none; z-index:2;
+    cursor:pointer; transition:transform .15s ease, background .15s ease;
+    border:none; z-index:2; color:var(--limestone);
   }
-  .play-btn:hover{transform:translate(-50%,-50%) scale(1.06);}
-  .play-btn svg{width:26px; height:26px; color:var(--vine-deep); margin-left:3px;}
+  .sound-btn:hover{transform:scale(1.06); background:rgba(20,20,12,0.75);}
+  .sound-btn svg{width:19px; height:19px;}
   .video-caption{
     position:absolute; bottom:16px; left:16px; color:var(--limestone);
     font-family:'IBM Plex Mono', monospace; font-size:11.5px;
@@ -253,8 +253,8 @@
       <div>
         <div class="altitude-controls">
           <label for="altSlider">Faites glisser pour changer d'altitude</label>
-          <input type="range" id="altSlider" min="40" max="100" value="40" step="1">
-          <div class="altitude-marks"><span>40 m</span><span>100 m</span></div>
+          <input type="range" id="altSlider" min="8" max="120" value="8" step="1">
+          <div class="altitude-marks"><span>8 m — au sol</span><span>120 m — plafond réglementaire loisir</span></div>
         </div>
         <p class="altitude-caption">À basse altitude, on distingue chaque rang de vigne. En prenant de la hauteur, c'est <strong>l'organisation entière du domaine</strong> qui se révèle — un argument que la photo au sol ne peut pas montrer.</p>
       </div>
@@ -296,14 +296,12 @@
       <h2>Le survol complet du domaine</h2>
     </div>
     <div class="video-frame">
-      <img class="rows-static" src="assets/images/survol-domaine-poster.jpg" alt="Aperçu du survol aérien du domaine" loading="lazy">
-      <!-- Pour une vraie vidéo YouTube/Vimeo, remplacer ce bloc image + bouton par :
-      <iframe src="https://www.youtube.com/embed/VOTRE_ID" title="Survol du domaine" allow="autoplay; fullscreen" allowfullscreen style="position:absolute; inset:0; width:100%; height:100%; border:0;"></iframe>
-      -->
-      <button class="play-btn" onclick="alert('Démonstration — vidéo à intégrer (montage drone du domaine).')" aria-label="Lire la vidéo de survol">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5 L19 12 L8 19 Z"/></svg>
+      <video class="rows-static" id="domaineVideo" src="assets/videos/survol-domaine.mp4" poster="assets/images/survol-domaine-poster.jpg" autoplay muted loop playsinline></video>
+      <button class="sound-btn" id="soundBtn" aria-label="Activer le son">
+        <svg id="soundIconOff" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 9 v6 h4 l5 5 V4 L8 9 Z"/><path d="M17 8 L22 16 M22 8 L17 16"/></svg>
+        <svg id="soundIconOn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="display:none;"><path d="M4 9 v6 h4 l5 5 V4 L8 9 Z"/><path d="M16 8 a5 5 0 0 1 0 8 M19 5 a9 9 0 0 1 0 14"/></svg>
       </button>
-      <div class="video-caption">Survol drone — 90 secondes — à intégrer</div>
+      <div class="video-caption">Survol drone — 90 secondes</div>
     </div>
   </div>
 </section>
@@ -390,13 +388,29 @@
   const rows = document.getElementById('rowsVisual');
   const readout = document.getElementById('altitudeReadout');
 
+  /* Bouton son pour la vidéo de survol (autoplay navigateur = muet obligatoire au démarrage) */
+  const video = document.getElementById('domaineVideo');
+  const soundBtn = document.getElementById('soundBtn');
+  const iconOff = document.getElementById('soundIconOff');
+  const iconOn = document.getElementById('soundIconOn');
+  soundBtn.addEventListener('click', () => {
+    video.muted = !video.muted;
+    iconOff.style.display = video.muted ? 'block' : 'none';
+    iconOn.style.display = video.muted ? 'none' : 'block';
+  });
+  video.addEventListener('error', () => {
+    video.style.display = 'none';
+    soundBtn.style.display = 'none';
+    video.insertAdjacentHTML('afterend', '<img class="rows-static" src="assets/images/survol-domaine-poster.jpg" alt="Aperçu du survol aérien du domaine" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;">');
+  });
+
   function updateAltitude(){
     const alt = parseInt(slider.value, 10);
     const progress = alt / 120; // 0 = au sol (8 m), 1 = altitude maximale
     // basse altitude -> zoom serré sur la maison ; haute altitude -> vue d'ensemble du domaine (scale 1)
-    const scale = 4 - progress * 2.5;
+    const scale = 1.65 - progress * 0.65;
     // légère brume/luminosité à mesure qu'on prend de l'altitude, pour un effet de distance
-    const blur = progress * 0.5;
+    const blur = progress * 1.1;
     const brightness = 1 + progress * 0.12;
     rows.style.transform = `scale(${scale})`;
     rows.style.filter = `brightness(${brightness}) blur(${blur}px)`;
