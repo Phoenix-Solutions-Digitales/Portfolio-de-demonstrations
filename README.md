@@ -140,30 +140,105 @@ mensuel, avec un exemple de radar de positionnement stratégique.
 ├── README.md                          ← ce fichier
 ├── LICENCE-DEMO.md                    ← licence commune à toutes les démos
 ├── web/                                ← 14 démonstrations de sites
-│   └── ...
+│   └── application-prise-rdv/
+|       ├── application-prise-rdv.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── avant-apres-refonte-site/
+|       ├── avant-apres-refonte-site.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── configurateur-devis/
+|       ├── configurateur-devis.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── dashboard-activite-commerciale/
+|       ├── dashboard-activite-commerciale.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── ecommerce-epicerie-fine/
+|       ├── ecommerce-epicerie-fine.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── formation-en-ligne/
+|       ├── formation-en-ligne.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── landing-page-isolation/
+|       ├── landing-page-isolation.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── microsite-evenement-pro/
+|       ├── microsite-evenement-pro.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── portfolio-photo-video/
+|       ├── portfolio-photo-video.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── pwa-plomberie-meunier/
+|       ├── pwa-plomberie-meunier.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── simulateur-economies-energie/
+|       ├── simulateur-economies-energie.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── site-premium-immobilier/
+|       ├── site-premium-immobilier.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── site-vitrine-artisan/
+|       ├── site-vitrine-artisan.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
+│   └── site-vitrine-tourisme-drone/
+|       ├── site-vitrine-tourisme-drone.html
+|       ├── README.md
+|       ├── licence
+|       └── assets/images/
 ├── photographie/
 │   ├── portfolio-photographie.html
 │   ├── README.md
+│   ├── licence
 │   └── assets/images/
 ├── video/
 │   ├── portfolio-video.html
 │   ├── README.md
+│   ├── licence
 │   └── assets/images/
 ├── drone/
 │   ├── portfolio-drone.html
 │   ├── README.md
+│   ├── licence
 │   └── assets/images/
 ├── graphisme/
 │   ├── portfolio-graphisme.html
 │   ├── README.md
+│   ├── licence
 │   └── assets/images/
 ├── marketing/
 │   ├── portfolio-marketing.html
 │   ├── README.md
+│   ├── licence
 │   └── assets/images/
 └── conseil/
     ├── portfolio-conseil.html
     ├── README.md
+    ├── licence
     └── assets/images/
 ```
 
