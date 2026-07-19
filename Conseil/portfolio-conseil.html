@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phoenix Solutions Digitales — Portfolio Conseil &amp; stratégie d'entreprise (démo)</title>
+<meta name="description" content="Exemples et mises en situation — pôle Analyse &amp; conseil en stratégie d'entreprise de Phoenix Solutions Digitales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bordeaux:#8B1A1A;
+    --bordeaux-deep:#6B1313;
+    --gold:#C9A134;
+    --gold-soft:#E3C778;
+    --ivory:#F5F0E8;
+    --ivory-dim:#EAE2D3;
+    --ink:#2A1B14;
+    --ink-soft:#5C4A3E;
+    --line: rgba(139,26,26,.16);
+    --line-strong: rgba(139,26,26,.32);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif; margin:0; font-weight:700; color:var(--bordeaux);}
+  a{color:inherit;}
+  img{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 clamp(1.25rem,4vw,3rem);}
+  :focus-visible{outline:2px solid var(--bordeaux); outline-offset:3px;}
+
+  /* ── Emplacements photo : fichier local (assets/images/) + repli si absent ── */
+  .frame-img, .hero-photo{ position:relative; }
+  .photo-slot{
+    width:100%; height:100%; position:relative; overflow:hidden;
+    background: linear-gradient(160deg, var(--ivory-dim), #DBCDB4);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.9rem;
+    border:1px solid var(--line-strong);
+  }
+  .photo-slot.tint-gold{
+    background: linear-gradient(160deg, #F2E9D2, #E4D3A4);
+  }
+  .photo-slot img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; z-index:1; }
+  .slot-icon{ width:44%; max-width:120px; color:var(--bordeaux); opacity:.85; position:relative; z-index:0; }
+  .slot-label{
+    font-size:.68rem; letter-spacing:.02em; color:var(--ink-soft);
+    text-align:center; padding:0 1.1rem; max-width:90%; line-height:1.4;
+    position:relative; z-index:0;
+  }
+  .slot-label b{display:block; color:var(--bordeaux); font-weight:600; font-size:.72rem; margin-bottom:.15rem;}
+
+  /* ── Bouton lecture (aperçu vidéo) ── */
+  .play-btn{
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:52px; height:52px; border-radius:50%; z-index:2;
+    background:rgba(42,27,20,.55); border:1.5px solid rgba(246,241,231,.7);
+    display:flex; align-items:center; justify-content:center;
+    backdrop-filter:blur(2px);
+  }
+  .play-btn svg{width:18px; height:18px; fill:var(--ivory); margin-left:2px;}
+  .duration-chip{
+    position:absolute; bottom:.6rem; right:.6rem; z-index:2;
+    font-size:.62rem; letter-spacing:.03em; color:var(--ivory);
+    background:rgba(42,27,20,.7); padding:.2rem .5rem;
+  }
+    background:var(--bordeaux);
+    color:var(--ivory);
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.02em;
+    text-align:center;
+    padding:.55rem 1rem;
+  }
+
+  /* ── Nav ── */
+  header.nav{
+    background:var(--ivory);
+    border-bottom:1px solid var(--line-strong);
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:1.1rem clamp(1.25rem,4vw,3rem);
+    gap:1.5rem;
+  }
+  .brand{
+    font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700;
+    letter-spacing:.01em; white-space:nowrap; color:var(--bordeaux);
+  }
+  .brand small{
+    display:block; font-family:'Inter',sans-serif; font-size:.65rem;
+    font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--gold); margin-top:.2rem;
+  }
+  nav.links{display:flex; gap:1.75rem; flex-wrap:wrap;}
+  nav.links a{
+    font-size:.8rem; text-decoration:none; color:var(--ink-soft);
+    letter-spacing:.01em; transition:color .2s; font-weight:500;
+  }
+  nav.links a:hover{color:var(--bordeaux);}
+  @media (max-width:820px){ nav.links{display:none;} }
+
+  /* ── Hero (compact, sans espace mort) ── */
+  .hero{
+    padding:3.25rem 0 3.5rem;
+    border-bottom:1px solid var(--line);
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr .9fr; gap:3rem; align-items:center;
+  }
+  @media (max-width:900px){ .hero-grid{grid-template-columns:1fr;} }
+  .eyebrow{
+    font-size:.72rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:1rem; display:flex; align-items:center; gap:.6rem;
+    font-weight:700;
+  }
+  .eyebrow::before{content:''; width:26px; height:2px; background:var(--gold); display:inline-block;}
+  h1.hero-title{
+    font-size:clamp(2.1rem, 4.4vw, 3.1rem); line-height:1.08; max-width:15ch;
+    margin-bottom:1.1rem;
+  }
+  .hero-lede{max-width:42ch; color:var(--ink-soft); font-size:1rem; margin-bottom:1.75rem;}
+  .hero-meta{display:flex; gap:2.25rem; flex-wrap:wrap;}
+  .hero-meta div strong{
+    display:block; font-family:'Playfair Display',serif; font-size:1.2rem; color:var(--bordeaux);
+  }
+  .hero-meta div span{font-size:.72rem; color:var(--ink-soft); letter-spacing:.03em;}
+
+  .hero-photos{
+    display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+  }
+  .hero-photo{
+    aspect-ratio:3/4; overflow:hidden; border:1px solid var(--line-strong);
+  }
+  .hero-photo:first-child{ margin-top:2rem; }
+  .hero-photo img{width:100%; height:100%; object-fit:cover;}
+
+  /* ── Section shell ── */
+  section.pole{padding:4.5rem 0; border-bottom:1px solid var(--line);}
+  section.pole:last-of-type{border-bottom:none;}
+  .section-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:2rem;
+    margin-bottom:2.5rem; flex-wrap:wrap;
+  }
+  .section-num{
+    font-family:'Playfair Display',serif; font-size:.85rem; color:var(--gold);
+    letter-spacing:.05em; margin-bottom:.6rem; display:block; font-weight:700;
+  }
+  .section-head h2{font-size:clamp(1.4rem,2.6vw,1.9rem); max-width:22ch;}
+  .section-desc{max-width:34ch; color:var(--ink-soft); font-size:.9rem;}
+
+  /* ── Filmstrip gallery ── */
+  .strip-track{
+    display:flex; gap:1.25rem; overflow-x:auto; padding:.25rem .1rem 1rem;
+    scroll-snap-type:x proximity;
+    scrollbar-width:thin; scrollbar-color:var(--gold) transparent;
+  }
+  .frame{
+    scroll-snap-align:start; flex:0 0 auto; width:min(72vw,290px);
+    background:#fff; border:1px solid var(--line-strong);
+  }
+  .frame-img{
+    position:relative; aspect-ratio:4/5; overflow:hidden;
+  }
+  .frame-img img{width:100%; height:100%; object-fit:cover;}
+  .frame-tag{
+    position:absolute; top:.6rem; left:.6rem;
+    font-size:.62rem; letter-spacing:.06em; color:var(--ivory);
+    background:rgba(42,27,20,.65);
+    padding:.2rem .45rem;
+  }
+  .frame-body{padding:1rem 1.1rem 1.2rem;}
+  .frame-body h3{font-size:1rem; margin-bottom:.4rem; line-height:1.25; color:var(--ink);}
+  .frame-body p{font-size:.8rem; color:var(--ink-soft); margin:0 0 .8rem;}
+  .price-chip{
+    display:inline-block; font-size:.72rem; color:var(--bordeaux); font-weight:600;
+    border:1px solid var(--line-strong); padding:.25rem .6rem;
+    letter-spacing:.02em; background:var(--ivory);
+  }
+  .price-row{display:flex; gap:.5rem; flex-wrap:wrap;}
+  .price-row .price-chip{font-size:.68rem; padding:.22rem .5rem;}
+  .frame-note{font-size:.72rem; color:var(--ink-soft); font-style:italic; margin:.4rem 0 0;}
+  .compliance-note{
+    margin-top:2.5rem; padding:1rem 1.25rem; border:1px solid var(--line-strong);
+    background:#fff; font-size:.78rem; color:var(--ink-soft); display:flex; gap:.6rem; align-items:flex-start;
+  }
+  .compliance-note svg{width:18px; height:18px; flex:0 0 auto; color:var(--bordeaux); margin-top:.1rem;}
+
+  /* ══ Mockups design — palettes volontairement différentes de la charte Phoenix ══ */
+  .mockup-stage{
+    width:100%; height:100%; display:flex; align-items:center; justify-content:center;
+    padding:1.4rem; background:#EDE7DC;
+  }
+  .mockup-stage.stage-verveine{ background:#EFEAE0; }
+  .mockup-stage.stage-nord{ background:#E4E3E0; }
+  .mockup-stage.stage-comptoir{ background:#EFE6D3; }
+
+  /* -- Logo mark : Maison Verveine -- */
+  .logo-verveine{ display:flex; flex-direction:column; align-items:center; gap:.6rem; color:#3F5744; }
+  .logo-verveine svg{ width:64px; height:64px; }
+  .logo-verveine .word{ font-family:'Playfair Display',serif; font-size:1rem; font-weight:600; letter-spacing:.03em; color:#3F5744; }
+  .logo-verveine .tag{ font-size:.6rem; letter-spacing:.16em; text-transform:uppercase; color:#A9714F; }
+
+  /* -- Logo mark : Atelier Nord -- */
+  .logo-nord{ display:flex; flex-direction:column; align-items:center; gap:.7rem; }
+  .logo-nord .mark{
+    width:60px; height:60px; border:2px solid #23344E; display:flex; align-items:center; justify-content:center;
+    font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:700; color:#23344E;
+  }
+  .logo-nord .word{ font-family:'Inter',sans-serif; font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; color:#23344E; }
+  .logo-nord .tag{ font-size:.6rem; letter-spacing:.1em; color:#B87333; }
+
+  /* -- Charte graphique swatch -- */
+  .charte-mockup{ width:100%; max-width:230px; }
+  .charte-mockup .swatches{ display:flex; gap:.4rem; margin-bottom:.8rem; }
+  .charte-mockup .swatch{ width:32px; height:32px; border-radius:50%; flex:0 0 auto; }
+  .charte-mockup .type-sample{ font-family:'Playfair Display',serif; font-size:2rem; color:#3F5744; line-height:1; margin-bottom:.3rem; }
+  .charte-mockup .type-label{ font-size:.62rem; letter-spacing:.05em; color:#7A6A55; }
+
+  /* -- Carte de visite : Le Comptoir -- */
+  .bizcard{
+    width:210px; aspect-ratio:1.75/1; background:#2E2A26; color:#F2E9DC;
+    border-radius:4px; padding:1rem 1.1rem; display:flex; flex-direction:column; justify-content:space-between;
+    box-shadow:0 10px 24px rgba(0,0,0,.18);
+  }
+  .bizcard .bc-mark{ width:22px; height:22px; border:1.5px solid #D9A441; border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:.8rem; color:#D9A441; }
+  .bizcard .bc-name{ font-family:'Playfair Display',serif; font-size:.95rem; margin-top:.5rem; }
+  .bizcard .bc-role{ font-size:.6rem; letter-spacing:.06em; color:#D9A441; margin-top:.15rem; }
+  .bizcard .bc-contact{ font-size:.58rem; color:#C9BFAE; letter-spacing:.02em; }
+
+  /* -- Flyer -- */
+  .flyer-mockup{
+    width:150px; aspect-ratio:1/1.42; background:#F2E9DC; color:#2E2A26; border-radius:2px;
+    box-shadow:0 10px 24px rgba(0,0,0,.14); overflow:hidden; display:flex; flex-direction:column;
+  }
+  .flyer-mockup .fm-band{ background:#D9A441; height:34%; display:flex; align-items:center; justify-content:center; }
+  .flyer-mockup .fm-band span{ font-family:'Playfair Display',serif; color:#2E2A26; font-size:.85rem; }
+  .flyer-mockup .fm-body{ flex:1; padding:.7rem .8rem; display:flex; flex-direction:column; gap:.3rem; }
+  .flyer-mockup .fm-line{ height:4px; background:#D9CBAE; border-radius:2px; }
+  .flyer-mockup .fm-line.short{ width:55%; }
+
+  /* -- Affiche / poster -- */
+  .poster-mockup{
+    width:140px; aspect-ratio:1/1.42; background:#23344E; color:#EDEAE3; border-radius:2px;
+    box-shadow:0 10px 24px rgba(0,0,0,.16); display:flex; flex-direction:column; align-items:center;
+    justify-content:center; padding:1rem; text-align:center; gap:.5rem;
+  }
+  .poster-mockup .pm-title{ font-family:'Playfair Display',serif; font-size:1.5rem; line-height:1; }
+  .poster-mockup .pm-sub{ font-size:.55rem; letter-spacing:.14em; text-transform:uppercase; color:#B87333; }
+  .poster-mockup .pm-rule{ width:28px; height:2px; background:#B87333; }
+
+  /* -- Template réseaux sociaux (Instagram) -- */
+  .insta-mockup{
+    width:190px; aspect-ratio:1/1; background:#3F5744; border-radius:6px; overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.16); position:relative; display:flex; flex-direction:column; justify-content:flex-end;
+  }
+  .insta-mockup::before{
+    content:''; position:absolute; inset:0;
+    background: radial-gradient(circle at 30% 30%, rgba(169,113,79,.35), transparent 60%);
+  }
+  .insta-mockup .im-caption{ position:relative; background:rgba(63,87,68,.9); padding:.6rem .8rem; color:#EFEAE0; }
+  .insta-mockup .im-brand{ font-size:.6rem; letter-spacing:.08em; text-transform:uppercase; color:#C9A56B; margin-bottom:.2rem; }
+  .insta-mockup .im-line{ height:3px; background:rgba(239,234,224,.5); border-radius:2px; margin-top:.3rem; }
+  .insta-mockup .im-line.short{ width:60%; }
+
+  /* -- Newsletter -- */
+  .news-mockup{
+    width:190px; aspect-ratio:3/4; background:#fff; border:1px solid #DCD3C4;
+    box-shadow:0 10px 24px rgba(0,0,0,.1); display:flex; flex-direction:column;
+  }
+  .news-mockup .nm-header{ background:#23344E; color:#EDEAE3; padding:.7rem; text-align:center; }
+  .news-mockup .nm-header .word{ font-family:'Playfair Display',serif; font-size:.85rem; }
+  .news-mockup .nm-body{ padding:.8rem; display:flex; flex-direction:column; gap:.35rem; }
+  .news-mockup .nm-block{ height:36px; background:#EDEAE3; border-radius:2px; }
+  .news-mockup .nm-line{ height:4px; background:#E2DACB; border-radius:2px; }
+  .news-mockup .nm-line.short{ width:70%; }
+
+  /* -- Présentation PowerPoint -- */
+  .slide-mockup{
+    width:230px; aspect-ratio:16/9; background:#fff; border:1px solid #DCD3C4;
+    box-shadow:0 10px 24px rgba(0,0,0,.1); padding:1rem 1.2rem; display:flex; flex-direction:column; justify-content:center; gap:.5rem;
+  }
+  .slide-mockup .sm-title{ font-family:'Playfair Display',serif; font-size:1rem; color:#23344E; }
+  .slide-mockup .sm-line{ height:4px; background:#E2DACB; border-radius:2px; width:80%; }
+  .slide-mockup .sm-line.short{ width:50%; }
+  .slide-mockup .sm-corner{ position:absolute; }
+
+  /* -- Brochure / plaquette -- */
+  .brochure-mockup{ position:relative; width:150px; aspect-ratio:1/1.3; }
+  .brochure-mockup .br-panel{
+    position:absolute; inset:0; background:#F2E9DC; border:1px solid #DCCBA8;
+    box-shadow:0 8px 18px rgba(0,0,0,.12); display:flex; flex-direction:column; padding:.8rem;
+    gap:.3rem;
+  }
+  .brochure-mockup .br-panel:nth-child(1){ transform:rotate(-6deg) translate(-8px,4px); z-index:1; }
+  .brochure-mockup .br-panel:nth-child(2){ transform:rotate(3deg) translate(6px,-2px); z-index:2; background:#fff; }
+  .brochure-mockup .br-line{ height:4px; background:#D9CBAE; border-radius:2px; }
+  .brochure-mockup .br-line.short{ width:60%; }
+  .brochure-mockup .br-band{ height:22%; background:#D9A441; border-radius:1px; margin-bottom:.3rem; }
+  .moodboard{ display:grid; grid-template-columns:repeat(3,1fr); gap:.4rem; width:100%; max-width:220px; }
+  .moodboard .mb-swatch{ aspect-ratio:1; border-radius:2px; }
+  .moodboard .mb-swatch.tex{
+    display:flex; align-items:center; justify-content:center; font-size:.55rem; color:#fff; letter-spacing:.04em;
+  }
+
+  /* ══ Mockups marketing ══ */
+
+  /* -- Rapport / document -- */
+  .report-mockup{
+    width:150px; aspect-ratio:1/1.3; background:#fff; border:1px solid #DCD3C4;
+    box-shadow:0 10px 24px rgba(0,0,0,.12); display:flex; flex-direction:column;
+  }
+  .report-mockup .rp-band{ background:var(--bordeaux); height:26%; display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--ivory); gap:.2rem; }
+  .report-mockup .rp-band .rp-title{ font-family:'Playfair Display',serif; font-size:.8rem; }
+  .report-mockup .rp-band .rp-sub{ font-size:.55rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold); }
+  .report-mockup .rp-body{ flex:1; padding:.8rem .9rem; display:flex; flex-direction:column; gap:.35rem; }
+  .report-mockup .rp-line{ height:4px; background:#E2DACB; border-radius:2px; }
+  .report-mockup .rp-line.short{ width:55%; }
+  .report-mockup .rp-chip{ margin-top:.4rem; font-size:.55rem; color:var(--bordeaux); border:1px solid var(--line-strong); padding:.15rem .4rem; align-self:flex-start; }
+
+  /* -- Feed réseaux sociaux (reprend insta-mockup) -- */
+  .feed-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:3px; width:180px; }
+  .feed-grid .fg-tile{ aspect-ratio:1; }
+
+  /* -- Annonce Google Ads -- */
+  .gads-mockup{
+    width:210px; background:#fff; border:1px solid #DCD3C4; border-radius:6px;
+    padding:.9rem 1rem; box-shadow:0 10px 24px rgba(0,0,0,.1);
+  }
+  .gads-mockup .ga-tag{ display:inline-block; font-size:.55rem; font-weight:700; color:#fff; background:#1a73e8; border-radius:2px; padding:.05rem .3rem; margin-bottom:.35rem; }
+  .gads-mockup .ga-title{ color:#1a0dab; font-size:.8rem; margin-bottom:.15rem; }
+  .gads-mockup .ga-url{ color:#006621; font-size:.62rem; margin-bottom:.35rem; }
+  .gads-mockup .ga-line{ height:4px; background:#E2E2E2; border-radius:2px; margin-bottom:.3rem; }
+  .gads-mockup .ga-line.short{ width:70%; }
+
+  /* -- Annonce Meta Ads -- */
+  .meta-mockup{
+    width:200px; background:#fff; border:1px solid #DCD3C4; border-radius:8px; overflow:hidden;
+    box-shadow:0 10px 24px rgba(0,0,0,.1);
+  }
+  .meta-mockup .mt-visual{ aspect-ratio:1/1; background:linear-gradient(135deg,#3F5744,#A9714F); }
+  .meta-mockup .mt-body{ padding:.6rem .8rem; }
+  .meta-mockup .mt-brand{ font-size:.58rem; letter-spacing:.05em; color:#8a8a8a; margin-bottom:.2rem; }
+  .meta-mockup .mt-line{ height:4px; background:#E2E2E2; border-radius:2px; margin-bottom:.25rem; }
+  .meta-mockup .mt-btn{ margin-top:.35rem; font-size:.6rem; font-weight:600; color:#fff; background:#1877f2; border-radius:4px; padding:.25rem 0; text-align:center; }
+
+  /* -- Article de blog -- */
+  .blog-mockup{
+    width:190px; background:#fff; border:1px solid #DCD3C4;
+    box-shadow:0 10px 24px rgba(0,0,0,.1); display:flex; flex-direction:column;
+  }
+  .blog-mockup .bl-cover{ aspect-ratio:16/9; background:linear-gradient(135deg,#23344E,#B87333); }
+  .blog-mockup .bl-body{ padding:.8rem .9rem; display:flex; flex-direction:column; gap:.3rem; }
+  .blog-mockup .bl-title{ font-family:'Playfair Display',serif; font-size:.82rem; color:var(--ink); }
+  .blog-mockup .bl-line{ height:3px; background:#E2DACB; border-radius:2px; }
+  .blog-mockup .bl-meta{ font-size:.55rem; color:var(--ink-soft); margin-top:.2rem; }
+
+  /* -- Fiche Google My Business -- */
+  .gmb-mockup{
+    width:210px; background:#fff; border:1px solid #DCD3C4; border-radius:6px;
+    padding:.9rem 1rem; box-shadow:0 10px 24px rgba(0,0,0,.1); display:flex; gap:.7rem; align-items:flex-start;
+  }
+  .gmb-mockup .gm-pin{ width:28px; height:28px; border-radius:50% 50% 50% 0; background:#EA4335; transform:rotate(-45deg); flex:0 0 auto; margin-top:.2rem; }
+  .gmb-mockup .gm-name{ font-size:.8rem; font-weight:600; color:var(--ink); margin-bottom:.2rem; }
+  .gmb-mockup .gm-stars{ color:#F4B400; font-size:.7rem; letter-spacing:.05em; }
+  .gmb-mockup .gm-line{ height:3px; background:#E2E2E2; border-radius:2px; margin-top:.35rem; }
+
+  /* -- Séquence e-mailing -- */
+  .emailseq-mockup{ display:flex; flex-direction:column; gap:.4rem; width:190px; }
+  .emailseq-mockup .es-item{
+    background:#fff; border:1px solid #DCD3C4; border-radius:4px; padding:.5rem .7rem;
+    display:flex; align-items:center; gap:.5rem; box-shadow:0 4px 10px rgba(0,0,0,.06);
+  }
+  .emailseq-mockup .es-num{
+    width:18px; height:18px; border-radius:50%; background:var(--bordeaux); color:var(--ivory);
+    font-size:.6rem; display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .emailseq-mockup .es-line{ height:3px; background:#E2DACB; border-radius:2px; flex:1; }
+
+  /* -- Dashboard KPI -- */
+  .dash-mockup{
+    width:100%; max-width:280px; background:#fff; border:1px solid #DCD3C4; border-radius:6px;
+    padding:1rem 1.1rem; box-shadow:0 10px 24px rgba(0,0,0,.1);
+  }
+  .dash-mockup .dk-row{ display:flex; justify-content:space-between; margin-bottom:.8rem; }
+  .dash-mockup .dk-metric strong{ display:block; font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--bordeaux); }
+  .dash-mockup .dk-metric span{ font-size:.6rem; color:var(--ink-soft); letter-spacing:.02em; }
+  .dash-mockup .dk-chart{ display:flex; align-items:flex-end; gap:.35rem; height:56px; }
+  .dash-mockup .dk-bar{ flex:1; background:linear-gradient(180deg, var(--gold), var(--bordeaux)); border-radius:2px 2px 0 0; }
+
+  /* -- Radar de positionnement -- */
+  .radar-mockup{ display:flex; flex-direction:column; align-items:center; gap:.6rem; }
+  .radar-mockup svg{ width:180px; height:180px; }
+  .radar-legend{ display:flex; gap:1rem; font-size:.62rem; color:var(--ink-soft); }
+  .radar-legend span{ display:flex; align-items:center; gap:.3rem; }
+  .radar-legend .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+
+  /* ── Grid gallery (immobilier/tourisme) ── */
+  .grid-gallery{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1.5rem;
+  }
+  .grid-gallery.cols-3{ grid-template-columns:repeat(3,1fr); }
+  @media (max-width:900px){ .grid-gallery.cols-3{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:680px){ .grid-gallery{grid-template-columns:1fr;} }
+  .grid-card{position:relative; overflow:hidden; border:1px solid var(--line-strong);}
+  .grid-card .frame-img{aspect-ratio:16/10;}
+  .grid-card .frame-body{
+    position:absolute; left:0; right:0; bottom:0;
+    background:linear-gradient(0deg, rgba(42,27,20,.88), transparent);
+    padding:1.5rem 1.25rem 1rem;
+  }
+  .grid-card .frame-body h3, .grid-card .frame-body p{color:var(--ivory);}
+  .grid-card .frame-body p{margin-bottom:.6rem; color:var(--ivory-dim);}
+
+  /* ── Before / After ── */
+  .ba-wrap{ max-width:760px; margin:0 auto; }
+  .ba-slider{
+    position:relative; aspect-ratio:3/2; overflow:hidden;
+    border:1px solid var(--line-strong); user-select:none; touch-action:pan-y;
+  }
+  .ba-img{ position:absolute; inset:0; width:100%; height:100%; }
+  .ba-slot-before{ filter:grayscale(1) brightness(.82) contrast(.85); border-style:solid; }
+  .ba-slot-after{ border-style:solid; border-color:var(--gold); }
+  .ba-after{ clip-path: inset(0 0 0 50%); }
+  .ba-label{
+    position:absolute; top:.75rem; font-size:.65rem; letter-spacing:.08em; font-weight:600;
+    background:rgba(42,27,20,.72); color:var(--ivory); padding:.25rem .55rem; z-index:3;
+  }
+  .ba-label.before{left:.75rem;}
+  .ba-label.after{right:.75rem;}
+  .ba-handle{
+    position:absolute; top:0; bottom:0; left:50%;
+    width:2px; background:var(--gold); z-index:2; cursor:ew-resize;
+    transform:translateX(-1px);
+  }
+  .ba-handle::after{
+    content:'⟷'; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    width:34px; height:34px; border-radius:50%; background:var(--gold); color:var(--ink);
+    display:flex; align-items:center; justify-content:center; font-size:.9rem;
+  }
+  .ba-range{
+    position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0;
+    cursor:ew-resize; z-index:4;
+  }
+  .ba-caption{
+    display:flex; justify-content:space-between; font-size:.75rem;
+    color:var(--ink-soft); margin-top:.9rem; flex-wrap:wrap; gap:.5rem;
+  }
+
+  /* ── Options list ── */
+  .options-row{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:1px; background:var(--line-strong); border:1px solid var(--line-strong); margin-top:2.5rem;
+  }
+  .option{background:#fff; padding:1.1rem 1.25rem;}
+  .option strong{display:block; font-size:.85rem; margin-bottom:.3rem; color:var(--ink);}
+  .option span{font-size:.75rem; color:var(--bordeaux); font-weight:600;}
+
+  /* ── Footer ── */
+  footer{padding:3.5rem 0 2.5rem; background:var(--ivory-dim);}
+  .footer-inner{ text-align:center; }
+  footer h2{font-size:clamp(1.4rem,3vw,1.9rem); max-width:20ch; margin:0 auto 0.75rem;}
+  footer p.sub{color:var(--ink-soft); font-size:.85rem; max-width:34ch; margin:0 auto 1.5rem;}
+  .cta-btn{
+    display:inline-block; background:var(--bordeaux); color:var(--ivory);
+    text-decoration:none; font-size:.8rem; font-weight:600; letter-spacing:.03em;
+    padding:.85rem 1.8rem;
+  }
+  .cta-btn:hover{background:var(--bordeaux-deep);}
+  .legal{font-size:.7rem; color:var(--ink-soft); margin-top:2.25rem; opacity:.75;}
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+</style>
+</head>
+<body>
+
+<div class="demo-ribbon">Page de démonstration — mise en page aux couleurs Phoenix, exemples de livrables à contenus fictifs</div>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">Phoenix Solutions Digitales<small>Pôle Conseil &amp; stratégie d'entreprise</small></div>
+    <nav class="links" aria-label="Sections du portfolio">
+      <a href="#diagnostic">Diagnostic &amp; audit</a>
+      <a href="#strategie">Stratégie &amp; plan d'action</a>
+      <a href="#outils">Outils &amp; ateliers</a>
+      <a href="#accompagnement">Accompagnement</a>
+      <a href="#positionnement">Positionnement</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Conseil — Diagnostic · Stratégie · Accompagnement · Ateliers</p>
+      <h1 class="hero-title">Un regard extérieur pour décider avec clarté.</h1>
+      <p class="hero-lede">Un regard extérieur et multi-métiers sur votre communication et votre développement commercial : diagnostics, plans d'action, accompagnement mensuel et ateliers pour dirigeants et équipes.</p>
+      <div class="hero-meta">
+        <div><strong>75 – 110 € HT</strong><span>Taux horaire</span></div>
+        <div><strong>550 – 800 € HT</strong><span>TJM</span></div>
+        <div><strong>3 mois</strong><span>Engagement accompagnement</span></div>
+      </div>
+    </div>
+    <div class="hero-photos">
+      <div class="hero-photo">
+        <div class="mockup-stage stage-nord">
+          <div class="report-mockup">
+            <div class="rp-band">
+              <span class="rp-title">Diagnostic</span>
+              <span class="rp-sub">Stratégique global</span>
+            </div>
+            <div class="rp-body">
+              <div class="rp-line"></div>
+              <div class="rp-line"></div>
+              <div class="rp-line short"></div>
+              <span class="rp-chip">Exemple fictif</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="mockup-stage stage-verveine">
+          <div class="radar-mockup">
+            <svg viewBox="0 0 120 120">
+              <polygon points="60,10 105,35 105,85 60,110 15,85 15,35" fill="none" stroke="#C9BFAE" stroke-width="1"/>
+              <polygon points="60,35 90,48 88,78 60,92 32,76 30,48" fill="none" stroke="#C9BFAE" stroke-width="1"/>
+              <polygon points="60,22 74,60 60,98 46,80 34,50 50,30" fill="#3F5744" fill-opacity=".35" stroke="#3F5744" stroke-width="2"/>
+              <polygon points="60,55 85,60 78,85 60,90 42,70 48,45" fill="#A9714F" fill-opacity=".3" stroke="#A9714F" stroke-width="2"/>
+            </svg>
+            <div class="radar-legend">
+              <span><i class="dot" style="background:#3F5744"></i>Cible</span>
+              <span><i class="dot" style="background:#A9714F"></i>Actuel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="compliance-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>Les rapports, plans et graphiques présentés ci-dessous sont des exemples fictifs destinés à illustrer le format des livrables — pas des données réelles de client. Les missions de conseil donnent lieu à un devis détaillé et un contrat de prestation avant démarrage.</span>
+    </div>
+  </div>
+</section>
+
+<section class="pole" id="diagnostic">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">01 — Diagnostic &amp; audit</span>
+        <h2>Poser un état des lieux clair</h2>
+      </div>
+      <p class="section-desc">Avant d'agir, comprendre : positionnement, communication et image de marque passés au crible, avec des recommandations concrètes.</p>
+    </div>
+
+    <div class="strip-track">
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 01A</span>
+          <div class="mockup-stage stage-nord">
+            <div class="report-mockup">
+              <div class="rp-band">
+                <span class="rp-title">Diagnostic</span>
+                <span class="rp-sub">Stratégique global</span>
+              </div>
+              <div class="rp-body">
+                <div class="rp-line"></div>
+                <div class="rp-line"></div>
+                <div class="rp-line short"></div>
+                <span class="rp-chip">Exemple fictif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Diagnostic stratégique global</h3>
+          <p>Rapport + restitution.</p>
+          <span class="price-chip">600 – 1 500 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 01B</span>
+          <div class="mockup-stage stage-verveine">
+            <div class="report-mockup">
+              <div class="rp-band" style="background:#3F5744;">
+                <span class="rp-title">Audit</span>
+                <span class="rp-sub" style="color:#C9A56B;">Print + digital</span>
+              </div>
+              <div class="rp-body">
+                <div class="rp-line"></div>
+                <div class="rp-line short"></div>
+                <div class="rp-line"></div>
+                <span class="rp-chip">Exemple fictif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Audit communication (print + digital)</h3>
+          <p>Rapport + plan d'action.</p>
+          <span class="price-chip">400 – 900 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 01C</span>
+          <div class="mockup-stage" style="background:#F1F3F4;">
+            <div class="dash-mockup" style="max-width:200px;">
+              <div class="dk-row">
+                <div class="dk-metric"><strong>3</strong><span>Concurrents analysés</span></div>
+              </div>
+              <div class="dk-chart">
+                <div class="dk-bar" style="height:55%"></div>
+                <div class="dk-bar" style="height:75%"></div>
+                <div class="dk-bar" style="height:40%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Analyse concurrentielle</h3>
+          <p>Rapport benchmark.</p>
+          <span class="price-chip">350 – 800 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 01D</span>
+          <div class="mockup-stage stage-comptoir">
+            <div class="gmb-mockup" style="flex-direction:column; align-items:center; text-align:center; gap:.3rem;">
+              <div class="gm-stars">★★★★☆</div>
+              <div class="rp-chip" style="align-self:center;">Exemple fictif</div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Audit de notoriété &amp; image de marque</h3>
+          <p>Rapport + recommandations.</p>
+          <span class="price-chip">400 – 900 €</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="options-row">
+      <div class="option"><strong>Analyse des besoins visuels / communication</strong><span>250 – 550 €</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pole" id="strategie">
+
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">02 — Stratégie &amp; plan d'action</span>
+        <h2>Transformer le constat en feuille de route</h2>
+      </div>
+      <p class="section-desc">Des documents structurés et actionnables, pensés pour être suivis dans le temps — pas des rapports qui dorment dans un tiroir.</p>
+    </div>
+
+    <div class="strip-track">
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 02A</span>
+          <div class="mockup-stage stage-nord">
+            <div class="report-mockup">
+              <div class="rp-band">
+                <span class="rp-title">Stratégie</span>
+                <span class="rp-sub">Communication 12 mois</span>
+              </div>
+              <div class="rp-body">
+                <div class="rp-line"></div>
+                <div class="rp-line short"></div>
+                <span class="rp-chip">Exemple fictif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Stratégie de communication 12 mois</h3>
+          <p>Document + tableau de bord.</p>
+          <span class="price-chip">800 – 2 000 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 02B</span>
+          <div class="mockup-stage stage-comptoir">
+            <div class="report-mockup">
+              <div class="rp-band" style="background:#2E2A26;">
+                <span class="rp-title" style="color:#F2E9DC;">Plan</span>
+                <span class="rp-sub" style="color:#D9A441;">Développement commercial</span>
+              </div>
+              <div class="rp-body">
+                <div class="rp-line"></div>
+                <div class="rp-line"></div>
+                <div class="rp-line short"></div>
+                <span class="rp-chip">Exemple fictif</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Plan de développement commercial</h3>
+          <p>Document stratégique.</p>
+          <span class="price-chip">700 – 1 800 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 02C</span>
+          <div class="mockup-stage stage-verveine">
+            <div class="emailseq-mockup" style="width:170px;">
+              <div class="es-item"><span class="es-num" style="background:#3F5744;">J</span><span class="es-line"></span></div>
+              <div class="es-item"><span class="es-num" style="background:#3F5744;">F</span><span class="es-line"></span></div>
+              <div class="es-item"><span class="es-num" style="background:#3F5744;">M</span><span class="es-line"></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Stratégie de contenu &amp; storytelling</h3>
+          <p>Charte éditoriale + planning.</p>
+          <span class="price-chip">500 – 1 200 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 02D</span>
+          <div class="mockup-stage" style="background:#F1F3F4;">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#23344E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:74px; height:74px;">
+              <path d="M50 14a30 30 0 1 1 -21.2 8.8"/>
+              <path d="M50 14v14"/>
+              <circle cx="50" cy="50" r="4" fill="#23344E" stroke="none"/>
+              <path d="M32 60c4-16 12-20 18-20"/>
+              <path d="M62 66c4-10 6-18 4-24"/>
+            </svg>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Étude de marché locale (Charente)</h3>
+          <p>Rapport + synthèse.</p>
+          <span class="price-chip">600 – 1 500 €</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="pole" id="outils">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">03 — Outils de communication &amp; ateliers</span>
+        <h2>Des supports prêts à convaincre</h2>
+      </div>
+      <p class="section-desc">Plaquette, argumentaire, pitch deck — et des ateliers pour transmettre la méthode aux équipes et dirigeants.</p>
+    </div>
+
+    <div class="strip-track">
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 03A</span>
+          <div class="mockup-stage stage-verveine">
+            <div class="brochure-mockup">
+              <div class="br-panel">
+                <div class="br-band" style="background:#3F5744;"></div>
+                <div class="br-line"></div>
+                <div class="br-line short"></div>
+              </div>
+              <div class="br-panel">
+                <div class="br-line short" style="width:40%;"></div>
+                <div class="br-line"></div>
+                <div class="br-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Création d'une plaquette commerciale</h3>
+          <p>Format print + digital.</p>
+          <span class="price-chip">300 – 700 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 03B</span>
+          <div class="mockup-stage stage-nord">
+            <div class="slide-mockup">
+              <div class="sm-title">Atelier Nord — Pitch deck</div>
+              <div class="sm-line"></div>
+              <div class="sm-line short"></div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Pitch deck / présentation investisseurs</h3>
+          <p>PPT/PDF professionnel.</p>
+          <span class="price-chip">500 – 1 200 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 03C</span>
+          <div class="mockup-stage stage-comptoir">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#2E2A26" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:74px; height:74px;">
+              <circle cx="34" cy="40" r="10"/>
+              <circle cx="66" cy="40" r="10"/>
+              <path d="M16 76c2-12 10-18 18-18s16 6 18 18"/>
+              <path d="M48 76c2-12 10-18 18-18s16 6 18 18"/>
+            </svg>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Atelier stratégie communication</h3>
+          <p>Demi-journée, 2 à 8 participants.</p>
+          <span class="price-chip">350 – 650 €</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 03D</span>
+          <div class="mockup-stage stage-nord">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#23344E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:66px; height:66px;">
+              <rect x="34" y="14" width="32" height="58" rx="6"/>
+              <line x1="42" y1="64" x2="58" y2="64"/>
+              <circle cx="50" cy="40" r="10"/>
+            </svg>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Formation prise de vue mobile (smartphone)</h3>
+          <p>2 à 6 participants.</p>
+          <span class="price-chip">200 – 450 €</span>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="options-row">
+      <div class="option"><strong>Rédaction argumentaire commercial</strong><span>200 – 500 €</span></div>
+      <div class="option"><strong>Atelier réseaux sociaux pour dirigeants</strong><span>300 – 600 €</span></div>
+      <div class="option"><strong>Bilan de performance communication</strong><span>250 – 600 €</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="pole" id="accompagnement">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">04 — Accompagnement &amp; suivi</span>
+        <h2>Rester à vos côtés dans la durée</h2>
+      </div>
+      <p class="section-desc">Un interlocuteur régulier plutôt qu'une mission ponctuelle, pour ajuster la trajectoire au fil des mois.</p>
+    </div>
+
+    <div class="strip-track">
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 04A</span>
+          <div class="mockup-stage stage-nord">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#23344E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:70px; height:70px;">
+              <rect x="18" y="24" width="64" height="58" rx="4"/>
+              <line x1="18" y1="40" x2="82" y2="40"/>
+              <line x1="32" y1="16" x2="32" y2="30"/>
+              <line x1="68" y1="16" x2="68" y2="30"/>
+              <circle cx="34" cy="56" r="3" fill="#23344E" stroke="none"/>
+              <circle cx="50" cy="56" r="3" fill="#B87333" stroke="none"/>
+              <circle cx="66" cy="56" r="3" fill="#23344E" stroke="none"/>
+              <circle cx="34" cy="70" r="3" fill="#23344E" stroke="none"/>
+            </svg>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Accompagnement mensuel (4h/mois)</h3>
+          <p>Suivi + points mensuels.</p>
+          <span class="price-chip">350 – 650 €/mois</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 04B</span>
+          <div class="mockup-stage stage-verveine">
+            <div class="dash-mockup" style="max-width:190px;">
+              <div class="dk-row">
+                <div class="dk-metric"><strong>8h</strong><span>Par mois</span></div>
+              </div>
+              <div class="dk-chart">
+                <div class="dk-bar" style="height:50%"></div>
+                <div class="dk-bar" style="height:70%"></div>
+                <div class="dk-bar" style="height:60%"></div>
+                <div class="dk-bar" style="height:85%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Accompagnement mensuel (8h/mois)</h3>
+          <p>Suivi + reporting.</p>
+          <span class="price-chip">600 – 1 100 €/mois</span>
+        </div>
+      </article>
+
+      <article class="frame">
+        <div class="frame-img">
+          <span class="frame-tag">N° 04C</span>
+          <div class="mockup-stage stage-comptoir">
+            <svg viewBox="0 0 100 100" fill="none" stroke="#2E2A26" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="width:70px; height:70px;">
+              <circle cx="50" cy="50" r="34"/>
+              <path d="M50 32v20l14 8"/>
+            </svg>
+          </div>
+        </div>
+        <div class="frame-body">
+          <h3>Conseil à la demande (à l'heure)</h3>
+          <p>Sur RDV ou distanciel.</p>
+          <span class="price-chip">75 – 110 €/h</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="pole" id="positionnement">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <span class="section-num">05 — Positionnement</span>
+        <h2>Où vous en êtes, où vous allez</h2>
+      </div>
+      <p class="section-desc">Chaque diagnostic aboutit à une lecture visuelle simple : la situation actuelle face à l'objectif visé, sur les dimensions clés de votre communication.</p>
+    </div>
+
+    <div class="ba-wrap" style="max-width:420px;">
+      <div class="mockup-stage stage-verveine" style="border-radius:6px;">
+        <div class="radar-mockup">
+          <svg viewBox="0 0 120 120">
+            <polygon points="60,10 105,35 105,85 60,110 15,85 15,35" fill="none" stroke="#C9BFAE" stroke-width="1"/>
+            <polygon points="60,35 90,48 88,78 60,92 32,76 30,48" fill="none" stroke="#C9BFAE" stroke-width="1"/>
+            <polygon points="60,22 74,60 60,98 46,80 34,50 50,30" fill="#3F5744" fill-opacity=".35" stroke="#3F5744" stroke-width="2"/>
+            <polygon points="60,55 85,60 78,85 60,90 42,70 48,45" fill="#A9714F" fill-opacity=".3" stroke="#A9714F" stroke-width="2"/>
+          </svg>
+          <div class="radar-legend">
+            <span><i class="dot" style="background:#3F5744"></i>Cible à 12 mois</span>
+            <span><i class="dot" style="background:#A9714F"></i>Situation actuelle</span>
+          </div>
+        </div>
+      </div>
+      <div class="ba-caption">
+        <span>Exemple fictif — 6 dimensions évaluées</span>
+        <span>Restitué lors de chaque diagnostic</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap footer-inner">
+    <h2>Envie d'un regard extérieur sur votre stratégie ?</h2>
+    <p class="sub">Chaque projet fait l'objet d'un devis personnalisé, gratuit et sans engagement.</p>
+    <a class="cta-btn" href="mailto:contact@phoenix-solutions-digitales.fr">Demander un devis</a>
+    <p class="legal">Phoenix Solutions Digitales — Angoulême &amp; Charente (16) · Tarifs HT indicatifs, article 293 B du CGI.</p>
+  </div>
+</footer>
+
+</body>
+</html>
