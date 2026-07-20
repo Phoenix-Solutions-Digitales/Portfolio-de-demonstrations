@@ -61,20 +61,45 @@ Chaque dossier de démonstration contient également :
   personnalisé pour votre activité ;
 - un dossier `assets/images/` avec un guide indiquant les visuels à
   ajouter, le cas échéant ;
-- le fichier `LICENCE-DEMO.md` (voir plus bas).
+- un exemplaire du fichier de licence (voir [`LICENCE-DEMO.md`](./LICENCE-DEMO.md) à la racine).
 
 ## Les 7 pôles de compétences
 
 ### 1 · Développement web
 
-Sites vitrines, outils métier et applications web sur-mesure, livrés sans
-dépendance à un framework lourd : HTML/CSS/JS autonomes, compatibles tous
-navigateurs, prêts pour un hébergement standard ou GitHub Pages.
+`web/portfolio-web.html`
 
-> 📁 Voir le dossier `web/` — 14 démonstrations couvrant différents types
-> d'activités (vitrines commerciales, outils marketing, applications
-> interactives, PWA). Le détail de chaque démo est présenté dans son
-> propre README.
+Contrairement aux 6 autres pôles, cette page sert avant tout de **grille
+tarifaire complète**, présentée avec la même mise en page que le reste du
+portfolio : sites vitrines (essentiel, standard, premium, portfolio
+photographe/artiste), sites e-commerce (starter, standard, avancée),
+sites spécialisés (réservation en ligne, one-page événementiel, landing
+page, multilingue), refonte de site existant (avec un comparateur
+avant/après illustratif du principe), et SEO & maintenance — avec le
+rappel de ce qui est inclus ou non dans chaque prestation.
+
+Les réalisations concrètes du pôle web sont présentées dans les 14
+démonstrations ci-dessous, chacune dans son propre dossier (HTML, README,
+licence et `assets/images/`) :
+
+| Démonstration | Type de site / outil illustré |
+|---|---|
+| `application-prise-rdv/` | Application de prise de rendez-vous en ligne |
+| `avant-apres-refonte-site/` | Démonstration interactive d'une refonte de site |
+| `configurateur-devis/` | Configurateur de devis en ligne |
+| `dashboard-activite-commerciale/` | Tableau de bord de suivi d'activité commerciale |
+| `ecommerce-epicerie-fine/` | Boutique en ligne — épicerie fine |
+| `formation-en-ligne/` | Plateforme de présentation de formations en ligne |
+| `landing-page-isolation/` | Landing page publicitaire — isolation |
+| `microsite-evenement-pro/` | Microsite dédié à un événement professionnel |
+| `portfolio-photo-video/` | Portfolio pour photographe / vidéaste |
+| `pwa-plomberie-meunier/` | Application web progressive (PWA) — plomberie |
+| `simulateur-economies-energie/` | Simulateur d'économies d'énergie |
+| `site-premium-immobilier/` | Site premium — immobilier haut de gamme |
+| `site-vitrine-artisan/` | Site vitrine — artisan |
+| `site-vitrine-tourisme-drone/` | Site vitrine tourisme, mis en valeur par des prises de vue drone |
+
+Le détail de chaque démo est présenté dans son propre README.
 
 ### 2 · Photographie
 
@@ -140,76 +165,77 @@ mensuel, avec un exemple de radar de positionnement stratégique.
 ├── README.md                          ← ce fichier
 ├── LICENCE-DEMO.md                    ← licence commune à toutes les démos
 ├── web/                                ← 14 démonstrations de sites
-│   └── application-prise-rdv/
-|       ├── application-prise-rdv.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── avant-apres-refonte-site/
-|       ├── avant-apres-refonte-site.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── configurateur-devis/
-|       ├── configurateur-devis.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── dashboard-activite-commerciale/
-|       ├── dashboard-activite-commerciale.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── ecommerce-epicerie-fine/
-|       ├── ecommerce-epicerie-fine.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── formation-en-ligne/
-|       ├── formation-en-ligne.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── landing-page-isolation/
-|       ├── landing-page-isolation.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── microsite-evenement-pro/
-|       ├── microsite-evenement-pro.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── portfolio-photo-video/
-|       ├── portfolio-photo-video.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── pwa-plomberie-meunier/
-|       ├── pwa-plomberie-meunier.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── simulateur-economies-energie/
-|       ├── simulateur-economies-energie.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── site-premium-immobilier/
-|       ├── site-premium-immobilier.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
-│   └── site-vitrine-artisan/
-|       ├── site-vitrine-artisan.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
+│   ├── portfolio-web.html              ← grille tarifaire du pôle
+│   ├── application-prise-rdv/
+│   │   ├── application-prise-rdv.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── avant-apres-refonte-site/
+│   │   ├── avant-apres-refonte-site.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── configurateur-devis/
+│   │   ├── configurateur-devis.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── dashboard-activite-commerciale/
+│   │   ├── dashboard-activite-commerciale.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── ecommerce-epicerie-fine/
+│   │   ├── ecommerce-epicerie-fine.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── formation-en-ligne/
+│   │   ├── formation-en-ligne.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── landing-page-isolation/
+│   │   ├── landing-page-isolation.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── microsite-evenement-pro/
+│   │   ├── microsite-evenement-pro.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── portfolio-photo-video/
+│   │   ├── portfolio-photo-video.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── pwa-plomberie-meunier/
+│   │   ├── pwa-plomberie-meunier.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── simulateur-economies-energie/
+│   │   ├── simulateur-economies-energie.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── site-premium-immobilier/
+│   │   ├── site-premium-immobilier.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
+│   ├── site-vitrine-artisan/
+│   │   ├── site-vitrine-artisan.html
+│   │   ├── README.md
+│   │   ├── licence
+│   │   └── assets/images/
 │   └── site-vitrine-tourisme-drone/
-|       ├── site-vitrine-tourisme-drone.html
-|       ├── README.md
-|       ├── licence
-|       └── assets/images/
+│       ├── site-vitrine-tourisme-drone.html
+│       ├── README.md
+│       ├── licence
+│       └── assets/images/
 ├── photographie/
 │   ├── portfolio-photographie.html
 │   ├── README.md
