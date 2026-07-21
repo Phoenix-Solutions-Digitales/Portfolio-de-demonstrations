@@ -231,7 +231,7 @@ function renderStep2(){
 
   const slotArea = document.getElementById('slotArea');
   if(state.dayIndex === null){
-    slotArea.innerHTML = '<div class="step-desc">Sélectionnez d\\'abord une date.</div>';
+    slotArea.innerHTML = `<div class="step-desc">Sélectionnez d'abord une date.</div>`;
   } else {
     const slots = slotsForDay(state.dayIndex);
     const grid = document.createElement('div');

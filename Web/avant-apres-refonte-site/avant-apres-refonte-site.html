@@ -73,7 +73,7 @@
   .compare-caption{text-align:center; font-family:'IBM Plex Mono', monospace; font-size:12px; color:#8a8f83; margin:14px 0 0;}
 
   /* ============ OLD SITE ============ */
-  .old-site{ width:100%; background:#F2F1E4; font-family:"Times New Roman", Times, serif; color:#222; }
+  .old-site{ width:100%; min-height:100%; display:flex; flex-direction:column; background:#F2F1E4; font-family:"Times New Roman", Times, serif; color:#222; }
   .old-banner{
     background:linear-gradient(90deg, #1B3A7A, #3D6BC7); color:#fff; padding:12px 20px;
     display:flex; align-items:center; justify-content:space-between; box-shadow:0 3px 6px rgba(0,0,0,0.3); flex-wrap:wrap; gap:8px;
@@ -96,9 +96,11 @@
     border:2px solid #C22; transform:rotate(-3deg); margin-bottom:8px;
   }
   .old-photo-box{
-    width:120px; height:90px; flex-shrink:0; background:repeating-linear-gradient(45deg,#9aa08a,#9aa08a 6px,#828a72 6px,#828a72 12px);
+    width:120px; height:90px; flex-shrink:0; overflow:hidden; position:relative;
+    background:repeating-linear-gradient(45deg,#9aa08a,#9aa08a 6px,#828a72 6px,#828a72 12px);
     border:3px solid #fff; box-shadow:2px 2px 6px rgba(0,0,0,0.4);
   }
+  .old-photo-box img{width:100%; height:100%; object-fit:cover; display:block;}
   .old-links{font-size:11px; color:#1B3A7A;}
   .old-links a{text-decoration:underline; margin-right:10px;}
 
@@ -110,9 +112,11 @@
 
   .old-gallery{display:flex; gap:10px; flex-wrap:wrap;}
   .old-gallery-item{
-    width:70px; height:56px; border:3px solid #fff; box-shadow:2px 2px 5px rgba(0,0,0,0.4);
+    width:70px; height:56px; overflow:hidden; position:relative;
+    border:3px solid #fff; box-shadow:2px 2px 5px rgba(0,0,0,0.4);
     background:repeating-linear-gradient(60deg,#7a8a6a,#7a8a6a 5px,#68765a 5px,#68765a 10px);
   }
+  .old-gallery-item img{width:100%; height:100%; object-fit:cover; display:block;}
   .old-gallery-item:nth-child(2){ transform:rotate(-4deg); background:repeating-linear-gradient(90deg,#8a7a5a,#8a7a5a 5px,#7a6c4e 5px,#7a6c4e 10px); }
   .old-gallery-item:nth-child(3){ transform:rotate(3deg); background:repeating-linear-gradient(120deg,#5a7a8a,#5a7a8a 5px,#4e6c7a 5px,#4e6c7a 10px); }
   .old-gallery-item:nth-child(4){ transform:rotate(-2deg); }
@@ -123,11 +127,11 @@
   .old-guestbook-entry .stars{color:#C22;}
 
   .old-cta-banner{background:#C22; color:#FFD400; text-align:center; padding:14px; font-size:16px; font-weight:bold; border-top:3px double #7A2E00; border-bottom:3px double #7A2E00;}
-  .old-footer{background:#DCDACB; padding:12px 20px; font-size:10px; color:#555; border-top:2px solid #B7B49E;}
+  .old-footer{margin-top:auto; background:#DCDACB; padding:12px 20px; font-size:10px; color:#555; border-top:2px solid #B7B49E;}
   .old-footer .counter{background:#000; color:#0F0; font-family:"Courier New", monospace; display:inline-block; padding:2px 6px; margin-bottom:6px;}
 
   /* ============ NEW SITE ============ */
-  .new-site{ width:100%; background:#fff; font-family:'Inter', sans-serif; color:var(--ink); }
+  .new-site{ width:100%; min-height:100%; display:flex; flex-direction:column; background:#fff; font-family:'Inter', sans-serif; color:var(--ink); }
   .new-nav{ display:flex; align-items:center; justify-content:space-between; padding:16px 26px; border-bottom:1px solid var(--border); }
   .new-brand{font-family:'Fraunces', serif; font-weight:600; font-size:16px;}
   .new-nav-links{display:flex; gap:20px; font-size:12px; color:#6b7060;}
@@ -139,7 +143,8 @@
   .new-hero-text h2{font-size:23px; line-height:1.2; margin:0 0 10px; max-width:13ch;}
   .new-hero-text p{font-size:12.5px; color:#5c6154; max-width:34ch; margin:0 0 14px;}
   .new-btn{display:inline-block; background:var(--emerald); color:#fff; padding:9px 18px; border-radius:5px; font-size:12px; font-weight:600;}
-  .new-photo-box{width:180px; height:130px; flex-shrink:0; border-radius:8px; background:repeating-linear-gradient(115deg,#0F766E,#0F766E 8px,#0d6b64 8px,#0d6b64 16px);}
+  .new-photo-box{width:180px; height:130px; flex-shrink:0; border-radius:8px; overflow:hidden; position:relative; background:repeating-linear-gradient(115deg,#0F766E,#0F766E 8px,#0d6b64 8px,#0d6b64 16px);}
+  .new-photo-box img{width:100%; height:100%; object-fit:cover; display:block;}
 
   .new-section{padding:34px 26px; border-top:1px solid var(--border);}
   .new-section-head{margin-bottom:18px;}
@@ -153,7 +158,8 @@
   .new-service-card p{font-size:11.5px; color:#6b7060; margin:0;}
 
   .new-gallery{display:grid; grid-template-columns:repeat(4,1fr); gap:10px;}
-  .new-gallery-item{aspect-ratio:1; border-radius:7px; background:repeating-linear-gradient(105deg,#dfe3dc,#dfe3dc 8px,#d2d7c9 8px,#d2d7c9 16px);}
+  .new-gallery-item{aspect-ratio:1; border-radius:7px; overflow:hidden; position:relative; background:repeating-linear-gradient(105deg,#dfe3dc,#dfe3dc 8px,#d2d7c9 8px,#d2d7c9 16px);}
+  .new-gallery-item img{width:100%; height:100%; object-fit:cover; display:block;}
 
   .new-testimonials{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
   .new-testimonial{border:1px solid var(--border); border-radius:7px; padding:16px;}
@@ -165,7 +171,7 @@
   .new-cta-banner h3{color:#fff; font-size:19px; margin-bottom:12px;}
   .new-cta-banner .new-btn{background:var(--emerald-light); color:var(--ink);}
 
-  .new-footer{background:#F7F8F5; padding:22px 26px; font-size:11.5px; color:#6b7060; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+  .new-footer{margin-top:auto; background:#F7F8F5; padding:22px 26px; font-size:11.5px; color:#6b7060; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
   .new-footer .col b{display:block; color:var(--ink); font-size:12px; margin-bottom:6px;}
 
   /* NOTES */
@@ -213,7 +219,7 @@
               <p>Dépannage, installation et rénovation sanitaire. Intervention sous 24h dans toute la Charente.</p>
               <span class="new-btn">Demander un devis</span>
             </div>
-            <div class="new-photo-box"></div>
+            <div class="new-photo-box"><img src="assets/images/plombier-apres.jpg" alt="Plombier au travail, version moderne" onerror="this.remove();"></div>
           </div>
 
           <div class="new-section">
@@ -240,8 +246,10 @@
           <div class="new-section">
             <div class="new-section-head"><div class="label">Réalisations</div><h3>Quelques chantiers récents</h3></div>
             <div class="new-gallery">
-              <div class="new-gallery-item"></div><div class="new-gallery-item"></div>
-              <div class="new-gallery-item"></div><div class="new-gallery-item"></div>
+              <div class="new-gallery-item"><img src="assets/images/realisation1-apres.jpg" alt="Realisation 1 — apres" onerror="this.remove();"></div>
+              <div class="new-gallery-item"><img src="assets/images/realisation2-apres.jpg" alt="Realisation 2 — apres" onerror="this.remove();"></div>
+              <div class="new-gallery-item"><img src="assets/images/realisation3-apres.jpg" alt="Realisation 3 — apres" onerror="this.remove();"></div>
+              <div class="new-gallery-item"><img src="assets/images/realisation4-apres.jpg" alt="Realisation 4 — apres" onerror="this.remove();"></div>
             </div>
           </div>
 
@@ -290,7 +298,7 @@
               <p>Plombier depuis 1987, nous intervenons sur Angoulême et environs pour tous vos travaux de plomberie, chauffage, et sanitaires. N'hésitez pas à nous contacter !</p>
               <div class="old-links"><a>Nos services</a><a>Nos réalisations</a><a>Devis en ligne</a><a>Livre d'or</a></div>
             </div>
-            <div class="old-photo-box"></div>
+            <div class="old-photo-box"><img src="assets/images/plombier-avant.jpg" alt="Plombier au travail, ancienne photo" onerror="this.remove();"></div>
           </div>
 
           <div class="old-section">
@@ -307,10 +315,10 @@
           <div class="old-section">
             <h3>&raquo; Nos Réalisations (cliquez pour agrandir) &laquo;</h3>
             <div class="old-gallery">
-              <div class="old-gallery-item"></div>
-              <div class="old-gallery-item"></div>
-              <div class="old-gallery-item"></div>
-              <div class="old-gallery-item"></div>
+              <div class="old-gallery-item"><img src="assets/images/realisation1-avant.jpg" alt="Realisation 1 — avant" onerror="this.remove();"></div>
+              <div class="old-gallery-item"><img src="assets/images/realisation2-avant.jpg" alt="Realisation 2 — avant" onerror="this.remove();"></div>
+              <div class="old-gallery-item"><img src="assets/images/realisation3-avant.jpg" alt="Realisation 3 — avant" onerror="this.remove();"></div>
+              <div class="old-gallery-item"><img src="assets/images/realisation4-avant.jpg" alt="Realisation 4 — avant" onerror="this.remove();"></div>
             </div>
           </div>
 
