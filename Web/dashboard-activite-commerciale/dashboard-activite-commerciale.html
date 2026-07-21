@@ -351,6 +351,7 @@
 const root = document.documentElement;
 const btnLight = document.getElementById('btnLight');
 const btnDark = document.getElementById('btnDark');
+let revenueChart, ringChart, categoryChart, channelChart;
 function setTheme(theme){
   root.setAttribute('data-theme', theme);
   btnLight.classList.toggle('active', theme === 'light');
@@ -507,8 +508,6 @@ document.getElementById('saveSettings').addEventListener('click', (e) => {
 
 /* ===== CHARTS ===== */
 function css(v){ return getComputedStyle(root).getPropertyValue(v).trim(); }
-
-let revenueChart, ringChart, categoryChart, channelChart;
 
 function buildCharts(){
   const teal = css('--teal'), tealLight = css('--teal-light'), amber = css('--amber'), danger = css('--danger'), muted = css('--muted'), border = css('--border'), ink = css('--ink');
