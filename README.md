@@ -70,7 +70,7 @@ ajouter, le cas échéant ;
 
 ### 1 · Développement web
 
-**➜ [Voir la grille tarifaire du pôle Web](web/portfolio-web.html)**
+**➜ [Voir la grille tarifaire du pôle Web](Web/portfolio-web.html)**
 
 Contrairement aux 6 autres pôles, cette page sert avant tout de **grille
 tarifaire complète**, présentée avec la même mise en page que le reste du
@@ -87,26 +87,26 @@ licence et `assets/images/`) :
 
 | Démonstration | Type de site / outil illustré |
 | --- | --- |
-| [application-prise-rdv](web/application-prise-rdv/application-prise-rdv.html) | Application de prise de rendez-vous en ligne |
-| [avant-apres-refonte-site](web/avant-apres-refonte-site/avant-apres-refonte-site.html) | Démonstration interactive d'une refonte de site |
-| [configurateur-devis](web/configurateur-devis/configurateur-devis.html) | Configurateur de devis en ligne |
-| [dashboard-activite-commerciale](web/dashboard-activite-commerciale/dashboard-activite-commerciale.html) | Tableau de bord de suivi d'activité commerciale |
-| [ecommerce-epicerie-fine](web/ecommerce-epicerie-fine/ecommerce-epicerie-fine.html) | Boutique en ligne — épicerie fine |
-| [formation-en-ligne](web/formation-en-ligne/formation-en-ligne.html) | Plateforme de présentation de formations en ligne |
-| [landing-page-isolation](web/landing-page-isolation/landing-page-isolation.html) | Landing page publicitaire — isolation |
-| [microsite-evenement-pro](web/microsite-evenement-pro/microsite-evenement-pro.html) | Microsite dédié à un événement professionnel |
-| [portfolio-photo-video](web/portfolio-photo-video/portfolio-photo-video.html) | Portfolio pour photographe / vidéaste |
-| [pwa-plomberie-meunier](web/pwa-plomberie-meunier/pwa-plomberie-meunier.html) | Application web progressive (PWA) — plomberie |
-| [simulateur-economies-energie](web/simulateur-economies-energie/simulateur-economies-energie.html) | Simulateur d'économies d'énergie |
-| [site-premium-immobilier](web/site-premium-immobilier/site-premium-immobilier.html) | Site premium — immobilier haut de gamme |
-| [site-vitrine-artisan](web/site-vitrine-artisan/site-vitrine-artisan.html) | Site vitrine — artisan |
-| [site-vitrine-tourisme-drone](web/site-vitrine-tourisme-drone/site-vitrine-tourisme-drone.html) | Site vitrine tourisme, mis en valeur par des prises de vue drone |
+| [application-prise-rdv](Web/application-prise-rdv/application-prise-rdv.html) | Application de prise de rendez-vous en ligne |
+| [avant-apres-refonte-site](Web/avant-apres-refonte-site/avant-apres-refonte-site.html) | Démonstration interactive d'une refonte de site |
+| [configurateur-devis](Web/configurateur-devis/configurateur-devis.html) | Configurateur de devis en ligne |
+| [dashboard-activite-commerciale](Web/dashboard-activite-commerciale/dashboard-activite-commerciale.html) | Tableau de bord de suivi d'activité commerciale |
+| [ecommerce-epicerie-fine](Web/ecommerce-epicerie-fine/ecommerce-epicerie-fine.html) | Boutique en ligne — épicerie fine |
+| [formation-en-ligne](Web/formation-en-ligne/formation-en-ligne.html) | Plateforme de présentation de formations en ligne |
+| [landing-page-isolation](Web/landing-page-isolation/landing-page-isolation.html) | Landing page publicitaire — isolation |
+| [microsite-evenement-pro](Web/microsite-evenement-pro/microsite-evenement-pro.html) | Microsite dédié à un événement professionnel |
+| [portfolio-photo-video](Web/portfolio-photo-video/portfolio-photo-video.html) | Portfolio pour photographe / vidéaste |
+| [pwa-plomberie-meunier](Web/pwa-plomberie-meunier/pwa-plomberie-meunier.html) | Application web progressive (PWA) — plomberie |
+| [simulateur-economies-energie](Web/simulateur-economies-energie/simulateur-economies-energie.html) | Simulateur d'économies d'énergie |
+| [site-premium-immobilier](Web/site-premium-immobilier/site-premium-immobilier.html) | Site premium — immobilier haut de gamme |
+| [site-vitrine-artisan](Web/site-vitrine-artisan/site-vitrine-artisan.html) | Site vitrine — artisan |
+| [site-vitrine-tourisme-drone](Web/site-vitrine-tourisme-drone/site-vitrine-tourisme-drone.html) | Site vitrine tourisme, mis en valeur par des prises de vue drone |
 
 Le détail de chaque démo est présenté dans son propre README.
 
 ### 2 · Photographie
 
-**➜ [Voir le portfolio Photographie](photographie/portfolio-photographie.html)**
+**➜ [Voir le portfolio Photographie](Photographie/portfolio-photographie.html)**
 
 Portfolio organisé en 4 sections reprenant les grandes familles de
 prestations : photographie corporate & entreprise, événementiel,
@@ -115,7 +115,7 @@ interactif pour illustrer l'apport de la retouche photo.
 
 ### 3 · Production vidéo
 
-**➜ [Voir le portfolio Vidéo](video/portfolio-video.html)**
+**➜ [Voir le portfolio Vidéo](Vidéo/portfolio-video.html)**
 
 Portfolio vidéo structuré autour de 5 familles de prestations : formats
 courts réseaux sociaux, films d'entreprise & corporate, films
@@ -124,7 +124,7 @@ publicitaires, captation événementielle, et post-production /
 
 ### 4 · Drone
 
-**➜ [Voir le portfolio Drone](drone/portfolio-drone.html)**
+**➜ [Voir le portfolio Drone](Drone/portfolio-drone.html)**
 
 Portfolio dédié aux prises de vue aériennes : immobilier & programmes
 neufs, corporate/industrie & suivi de chantier, tourisme & vignobles,
@@ -134,7 +134,7 @@ habilitations réglementaires du télépilote.
 
 ### 5 · Graphisme & identité visuelle
 
-**➜ [Voir le portfolio Graphisme](graphisme/portfolio-graphisme.html)**
+**➜ [Voir le portfolio Graphisme](Graphisme/portfolio-graphisme.html)**
 
 Portfolio de créations graphiques : identité visuelle (logo, charte
 graphique), supports print (carte de visite, flyer, affiche, brochure),
@@ -146,7 +146,7 @@ exemples de style neutres.
 
 ### 6 · Marketing digital & stratégie
 
-**➜ [Voir le portfolio Marketing](marketing/portfolio-marketing.html)**
+**➜ [Voir le portfolio Marketing](Marketing/portfolio-marketing.html)**
 
 Portfolio couvrant la stratégie & le conseil, le community management,
 la publicité en ligne (Google Ads, Meta Ads), le référencement (SEO),
@@ -155,7 +155,7 @@ de résultats.
 
 ### 7 · Conseil & stratégie d'entreprise
 
-**➜ [Voir le portfolio Conseil](conseil/portfolio-conseil.html)**
+**➜ [Voir le portfolio Conseil](Conseil/portfolio-conseil.html)**
 
 Portfolio de missions de conseil : diagnostic & audit, stratégie & plan
 d'action, outils de communication & ateliers, accompagnement & suivi
