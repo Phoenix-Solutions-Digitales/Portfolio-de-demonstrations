@@ -96,7 +96,7 @@ licence et `assets/images/`) :
 | [landing-page-isolation](Web/landing-page-isolation/landing-page-isolation.html) | Landing page publicitaire — isolation |
 | [microsite-evenement-pro](Web/microsite-evenement-pro/microsite-evenement-pro.html) | Microsite dédié à un événement professionnel |
 | [portfolio-photo-video](Web/portfolio-photo-video/portfolio-photo-video.html) | Portfolio pour photographe / vidéaste |
-| [pwa-plomberie-meunier](Web/pwa-plomberie-meunier/pwa-plomberie-meunier.html) | Application web progressive (PWA) — plomberie |
+| [pwa-plomberie-meunier](Web/pwa-plomberie-meunier/index.html) | Application web progressive (PWA) — plomberie |
 | [simulateur-economies-energie](Web/simulateur-economies-energie/simulateur-economies-energie.html) | Simulateur d'économies d'énergie |
 | [site-premium-immobilier](Web/site-premium-immobilier/site-premium-immobilier.html) | Site premium — immobilier haut de gamme |
 | [site-vitrine-artisan](Web/site-vitrine-artisan/site-vitrine-artisan.html) | Site vitrine — artisan |
