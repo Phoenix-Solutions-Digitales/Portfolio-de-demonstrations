@@ -1,3 +1,5 @@
+# [Portfolio-de-demonstrations](https://phoenix-solutions-digitales.github.io/Portfolio-de-demonstrations/)
+
 # Phoenix Solutions Digitales — Portfolio de démonstrations
 
 Bienvenue dans le portfolio de démonstrations de **Phoenix Solutions
@@ -8,7 +10,7 @@ Ce dépôt regroupe des exemples concrets — sites, portfolios interactifs,
 mockups — illustrant le style et le niveau de qualité proposés sur
 l'ensemble des prestations. Chaque démonstration est un fichier HTML
 autonome (aucune installation requise) que vous pouvez ouvrir directement
-dans un navigateur.
+dans un navigateur, ou consulter en ligne via les liens ci-dessous.
 
 ---
 
@@ -46,28 +48,29 @@ d'ailleurs :
 
 ## Comment consulter ces démonstrations
 
-Chaque démonstration est **autonome** : pas de serveur, pas d'installation,
-pas de dépendance en ligne.
+**En ligne :** cliquez simplement sur les liens ci-dessous, chaque
+démonstration s'ouvre directement dans votre navigateur.
 
-1. Téléchargez le dossier de la démonstration qui vous intéresse.
-2. Ouvrez le fichier `.html` qu'il contient dans votre navigateur
-   (double-clic, ou glisser-déposer dans une fenêtre de navigateur).
-3. Naviguez librement : les menus, comparateurs et éléments interactifs
-   présents fonctionnent réellement.
+**En local :** téléchargez le dossier de la démonstration qui vous
+intéresse et ouvrez le fichier `.html` qu'il contient (double-clic, ou
+glisser-déposer dans une fenêtre de navigateur). Naviguez librement : les
+menus, comparateurs et éléments interactifs présents fonctionnent
+réellement.
 
 Chaque dossier de démonstration contient également :
+
 - un fichier `README.md` propre à la démo, qui explique ce qui fonctionne
-  déjà, ce qui reste à faire pour une mise en production, et ce qui sera
-  personnalisé pour votre activité ;
+déjà, ce qui reste à faire pour une mise en production, et ce qui sera
+personnalisé pour votre activité ;
 - un dossier `assets/images/` avec un guide indiquant les visuels à
-  ajouter, le cas échéant ;
-- un exemplaire du fichier de licence (voir [`LICENCE-DEMO.md`](./LICENCE-DEMO.md) à la racine).
+ajouter, le cas échéant ;
+- un exemplaire du fichier de licence (voir [LICENCE-DEMO.md](LICENCE-DEMO.md) à la racine).
 
 ## Les 7 pôles de compétences
 
 ### 1 · Développement web
 
-`web/portfolio-web.html`
+**➜ [Voir la grille tarifaire du pôle Web](web/portfolio-web.html)**
 
 Contrairement aux 6 autres pôles, cette page sert avant tout de **grille
 tarifaire complète**, présentée avec la même mise en page que le reste du
@@ -83,27 +86,27 @@ démonstrations ci-dessous, chacune dans son propre dossier (HTML, README,
 licence et `assets/images/`) :
 
 | Démonstration | Type de site / outil illustré |
-|---|---|
-| `application-prise-rdv/` | Application de prise de rendez-vous en ligne |
-| `avant-apres-refonte-site/` | Démonstration interactive d'une refonte de site |
-| `configurateur-devis/` | Configurateur de devis en ligne |
-| `dashboard-activite-commerciale/` | Tableau de bord de suivi d'activité commerciale |
-| `ecommerce-epicerie-fine/` | Boutique en ligne — épicerie fine |
-| `formation-en-ligne/` | Plateforme de présentation de formations en ligne |
-| `landing-page-isolation/` | Landing page publicitaire — isolation |
-| `microsite-evenement-pro/` | Microsite dédié à un événement professionnel |
-| `portfolio-photo-video/` | Portfolio pour photographe / vidéaste |
-| `pwa-plomberie-meunier/` | Application web progressive (PWA) — plomberie |
-| `simulateur-economies-energie/` | Simulateur d'économies d'énergie |
-| `site-premium-immobilier/` | Site premium — immobilier haut de gamme |
-| `site-vitrine-artisan/` | Site vitrine — artisan |
-| `site-vitrine-tourisme-drone/` | Site vitrine tourisme, mis en valeur par des prises de vue drone |
+| --- | --- |
+| [application-prise-rdv](web/application-prise-rdv/application-prise-rdv.html) | Application de prise de rendez-vous en ligne |
+| [avant-apres-refonte-site](web/avant-apres-refonte-site/avant-apres-refonte-site.html) | Démonstration interactive d'une refonte de site |
+| [configurateur-devis](web/configurateur-devis/configurateur-devis.html) | Configurateur de devis en ligne |
+| [dashboard-activite-commerciale](web/dashboard-activite-commerciale/dashboard-activite-commerciale.html) | Tableau de bord de suivi d'activité commerciale |
+| [ecommerce-epicerie-fine](web/ecommerce-epicerie-fine/ecommerce-epicerie-fine.html) | Boutique en ligne — épicerie fine |
+| [formation-en-ligne](web/formation-en-ligne/formation-en-ligne.html) | Plateforme de présentation de formations en ligne |
+| [landing-page-isolation](web/landing-page-isolation/landing-page-isolation.html) | Landing page publicitaire — isolation |
+| [microsite-evenement-pro](web/microsite-evenement-pro/microsite-evenement-pro.html) | Microsite dédié à un événement professionnel |
+| [portfolio-photo-video](web/portfolio-photo-video/portfolio-photo-video.html) | Portfolio pour photographe / vidéaste |
+| [pwa-plomberie-meunier](web/pwa-plomberie-meunier/pwa-plomberie-meunier.html) | Application web progressive (PWA) — plomberie |
+| [simulateur-economies-energie](web/simulateur-economies-energie/simulateur-economies-energie.html) | Simulateur d'économies d'énergie |
+| [site-premium-immobilier](web/site-premium-immobilier/site-premium-immobilier.html) | Site premium — immobilier haut de gamme |
+| [site-vitrine-artisan](web/site-vitrine-artisan/site-vitrine-artisan.html) | Site vitrine — artisan |
+| [site-vitrine-tourisme-drone](web/site-vitrine-tourisme-drone/site-vitrine-tourisme-drone.html) | Site vitrine tourisme, mis en valeur par des prises de vue drone |
 
 Le détail de chaque démo est présenté dans son propre README.
 
 ### 2 · Photographie
 
-`photographie/portfolio-photographie.html`
+**➜ [Voir le portfolio Photographie](photographie/portfolio-photographie.html)**
 
 Portfolio organisé en 4 sections reprenant les grandes familles de
 prestations : photographie corporate & entreprise, événementiel,
@@ -112,7 +115,7 @@ interactif pour illustrer l'apport de la retouche photo.
 
 ### 3 · Production vidéo
 
-`video/portfolio-video.html`
+**➜ [Voir le portfolio Vidéo](video/portfolio-video.html)**
 
 Portfolio vidéo structuré autour de 5 familles de prestations : formats
 courts réseaux sociaux, films d'entreprise & corporate, films
@@ -121,7 +124,7 @@ publicitaires, captation événementielle, et post-production /
 
 ### 4 · Drone
 
-`drone/portfolio-drone.html`
+**➜ [Voir le portfolio Drone](drone/portfolio-drone.html)**
 
 Portfolio dédié aux prises de vue aériennes : immobilier & programmes
 neufs, corporate/industrie & suivi de chantier, tourisme & vignobles,
@@ -131,7 +134,7 @@ habilitations réglementaires du télépilote.
 
 ### 5 · Graphisme & identité visuelle
 
-`graphisme/portfolio-graphisme.html`
+**➜ [Voir le portfolio Graphisme](graphisme/portfolio-graphisme.html)**
 
 Portfolio de créations graphiques : identité visuelle (logo, charte
 graphique), supports print (carte de visite, flyer, affiche, brochure),
@@ -143,7 +146,7 @@ exemples de style neutres.
 
 ### 6 · Marketing digital & stratégie
 
-`marketing/portfolio-marketing.html`
+**➜ [Voir le portfolio Marketing](marketing/portfolio-marketing.html)**
 
 Portfolio couvrant la stratégie & le conseil, le community management,
 la publicité en ligne (Google Ads, Meta Ads), le référencement (SEO),
@@ -152,7 +155,7 @@ de résultats.
 
 ### 7 · Conseil & stratégie d'entreprise
 
-`conseil/portfolio-conseil.html`
+**➜ [Voir le portfolio Conseil](conseil/portfolio-conseil.html)**
 
 Portfolio de missions de conseil : diagnostic & audit, stratégie & plan
 d'action, outils de communication & ateliers, accompagnement & suivi
@@ -171,71 +174,7 @@ mensuel, avec un exemple de radar de positionnement stratégique.
 │   │   ├── README.md
 │   │   ├── licence
 │   │   └── assets/images/
-│   ├── avant-apres-refonte-site/
-│   │   ├── avant-apres-refonte-site.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── configurateur-devis/
-│   │   ├── configurateur-devis.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── dashboard-activite-commerciale/
-│   │   ├── dashboard-activite-commerciale.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── ecommerce-epicerie-fine/
-│   │   ├── ecommerce-epicerie-fine.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── formation-en-ligne/
-│   │   ├── formation-en-ligne.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── landing-page-isolation/
-│   │   ├── landing-page-isolation.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── microsite-evenement-pro/
-│   │   ├── microsite-evenement-pro.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── portfolio-photo-video/
-│   │   ├── portfolio-photo-video.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── pwa-plomberie-meunier/
-│   │   ├── pwa-plomberie-meunier.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── simulateur-economies-energie/
-│   │   ├── simulateur-economies-energie.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── site-premium-immobilier/
-│   │   ├── site-premium-immobilier.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   ├── site-vitrine-artisan/
-│   │   ├── site-vitrine-artisan.html
-│   │   ├── README.md
-│   │   ├── licence
-│   │   └── assets/images/
-│   └── site-vitrine-tourisme-drone/
-│       ├── site-vitrine-tourisme-drone.html
-│       ├── README.md
-│       ├── licence
-│       └── assets/images/
+│   └── ... (13 autres démos, même structure)
 ├── photographie/
 │   ├── portfolio-photographie.html
 │   ├── README.md
@@ -270,8 +209,7 @@ mensuel, avec un exemple de radar de positionnement stratégique.
 
 ## Licence et mentions
 
-L'ensemble des démonstrations de ce dépôt est soumis au fichier
-[`LICENCE-DEMO.md`](./LICENCE-DEMO.md) : usage d'évaluation uniquement,
+L'ensemble des démonstrations de ce dépôt est soumis au fichier [LICENCE-DEMO.md](LICENCE-DEMO.md) : usage d'évaluation uniquement,
 propriété de Phoenix Solutions Digitales, contenus d'exemple fictifs.
 Merci de vous y référer avant toute réutilisation.
 
@@ -280,7 +218,7 @@ Merci de vous y référer avant toute réutilisation.
 Les 7 pôles présentés ci-dessus sont pensés pour être combinés : un site
 vitrine accompagné d'un reportage photo, une identité visuelle complétée
 par une campagne réseaux sociaux, un drone en appui d'un film
-institutionnel...
+institutionnel…
 
 **Des formules combinées ("packages") sont proposées pour réduire le coût
 global** lorsque plusieurs prestations sont associées dans un même projet.
